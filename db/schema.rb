@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712142200) do
+ActiveRecord::Schema.define(version: 20170718163842) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -19,9 +19,7 @@ ActiveRecord::Schema.define(version: 20170712142200) do
     t.datetime "updated_at",             null: false
     t.string   "slug"
     t.integer  "status",     default: 0
-    t.integer  "topic_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
-    t.index ["topic_id"], name: "index_blogs_on_topic_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -51,7 +49,6 @@ ActiveRecord::Schema.define(version: 20170712142200) do
     t.integer  "percent_utilized"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.text     "badge"
   end
 
   create_table "technologies", force: :cascade do |t|
@@ -60,12 +57,6 @@ ActiveRecord::Schema.define(version: 20170712142200) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["portfolio_id"], name: "index_technologies_on_portfolio_id"
-  end
-
-  create_table "topics", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
